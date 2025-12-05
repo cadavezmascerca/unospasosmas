@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>En algún lugar de aquel hermoso país</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    background: linear-gradient(135deg, #000020, #001900, #200000);
+    color: white;
+    font-family: 'Cinzel', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    font-size: 28px;
+    text-align: center;
+    color: rgb(255, 40, 40);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    margin-bottom: 40px;
+}
+
+.form-box {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgb(0, 140, 255);
+    box-shadow: 0 0 20px rgba(0, 140, 255, 0.5);
+    border-radius: 10px;
+    padding: 30px;
+    width: 300px;
+}
+
+label {
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 15px;
+    background: black;
+    border: 1px solid rgb(0, 255, 128);
+    border-radius: 5px;
+    color: white;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: red;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+button:hover {
+    background: darkred;
+}
+
+#mensaje {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>En algún lugar de aquel hermoso país...</h1>
+
+<div class="form-box">
+<label for="user">Usuario</label>
+<input type="text" id="user" />
+
+<label for="pass">Contraseña</label>
+<input type="password" id="pass" />
+
+<button onclick="acceder()">Revelar</button>
+
+<div id="mensaje"></div>
+</div>
+
+<script>
+function acceder() {
+    var usuario = document.getElementById("user").value;
+    var contraseña = document.getElementById("pass").value;
+
+    if (usuario === "merida" && contraseña === "merida") {
+        document.getElementById("mensaje").innerHTML =
+            "<a href='https://goo.su/PHMQlW' target='_blank'>Ver video</a>";
+    } else {
+        document.getElementById("mensaje").innerHTML = "Acceso denegado.";
+    }
+}
+</script>
+
+</body>
+</html>
