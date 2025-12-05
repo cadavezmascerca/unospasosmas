@@ -99,7 +99,18 @@ function acceder() {
 
     if (usuario === "merida" && contraseña === "merida") {
         document.getElementById("mensaje").innerHTML =
-            "<a href='https://goo.su/PHMQlW' target='_blank'>Ver video</a>";
+            "<button id="verVideo" style="margin-top: 20px; padding: 10px; background-color: red; color: white; border: none; cursor: pointer; border-radius: 6px; font-size: 18px;">
+  Ver video
+</button>
+
+<script>
+  document.getElementById("verVideo").addEventListener("click", async () => {
+    const response = await fetch("secret.json");
+    const data = await response.json();
+    window.location.href = data.secret;
+  });
+</script>
+";
     } else {
         document.getElementById("mensaje").innerHTML = "Acceso denegado.";
     }
@@ -108,3 +119,4 @@ function acceder() {
 
 </body>
 </html>
+
