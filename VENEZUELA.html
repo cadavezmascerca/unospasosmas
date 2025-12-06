@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Me alegró saber que escuchaste esa linda canción.</title>
+
+  <!-- Tipografía misteriosa -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Cinzel', serif;
+      background: linear-gradient(135deg, #000a1f, #002b5f);
+      color: red;
+      overflow: hidden;
+    }
+
+    /* Efecto difuminado ambiental */
+    body::before{
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,0,0,0.15), transparent 70%);
+      filter: blur(50px);
+      animation: pulse 7s infinite alternate;
+    }
+
+    @keyframes pulse{
+      0%{ transform: scale(1);}
+      100%{ transform: scale(1.1);}
+    }
+
+    .container{
+      position: relative;
+      text-align: center;
+      z-index: 10;
+      padding: 25px 40px;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,0,0,0.25);
+      border-radius: 14px;
+      box-shadow: 0 0 25px rgba(255,0,0,0.2);
+    }
+
+    h1{
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    p{
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    input{
+      margin-top: 14px;
+      padding: 12px;
+      width: 140px;
+      font-size: 22px;
+      text-align: center;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      background: rgba(255,255,255,0.85);
+      color: #111;
+      transition: box-shadow 0.3s;
+    }
+
+    input:focus{
+      box-shadow: 0 0 10px rgba(255,0,0,0.6);
+    }
+
+    button{
+      margin-top: 16px;
+      padding: 12px 28px;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255,0,0,0.8);
+      color: #000a1f;
+      box-shadow: 0 0 12px rgba(255,0,0,0.5);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    button:hover{
+      background: rgba(255,0,0,1);
+      box-shadow: 0 0 18px rgba(255,0,0,0.8);
+    }
+
+    #mensaje{
+      margin-top: 18px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    #binario{
+      margin-top: 14px;
+      font-size: 14px;
+      text-align: left;
+      color: #ffbdbd;
+      word-break: break-word;
+      opacity: 0;
+      transition: opacity 1s ease-out;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Me alegró saber que escuchaste esa linda canción.</h1>
+  <p>Ingrese el número.</p>
+
+  <input type="number" id="numero">
+  <br>
+  <button onclick="verificar()">Enviar</button>
+
+  <div id="mensaje"></div>
+  <div id="binario"></div>
+</div>
+
+<script>
+function verificar(){
+  const valor = document.getElementById('numero').value.trim();
+  const msg = document.getElementById('mensaje');
+  const bin = document.getElementById('binario');
+
+  if(valor === "190"){
+    msg.style.color = "lime";
+    msg.textContent = "Correcto.";
+    
+    bin.textContent = "01010010 01100001 01101001 11000011 10101101 01101110 00100000 01101110 00100000 01100101 01101110 01100001 01110100 01110010 01100101 01110100 01101111 01110101 01000000 01110100 01111010 01101110 01110110 01111001 00101110 01110000 01100010 01111010 00101100 00100000 01100100 01101000 01110010 00100000 01110101 01101110 01100110 00100000 01110000 01100010 01111010 01100011 01111001 01110010 01100111 01101110 01110001 01100010 00100000 01110000 01101110 01100110 01110110 00100000 01100111 01100010 01110001 01100010 00100000 01111001 01100010 00100000 01100001 01110010 01110000 01110010 01100110 01101110 01100101 01110110 01100010 00101110";
+    
+    bin.style.opacity = 1;
+
+  } else {
+    msg.style.color = "red";
+    msg.textContent = "Incorrecto.";
+    bin.style.opacity = 0;
+  }
+}
+</script>
+
+</body>
+</html>
